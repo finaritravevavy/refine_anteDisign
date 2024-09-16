@@ -6,11 +6,13 @@ import routerProvider from "@refinedev/nextjs-router";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import React, { Suspense } from "react";
-
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ColorModeContextProvider } from "@contexts/color-mode";
 import { dataProvider } from "@providers/data-provider";
 import "@refinedev/antd/dist/reset.css";
+import PersonneList from "./personne/page";
+import PersonneCreate from "./personne/create/page";
+
 
 export const metadata: Metadata = {
   title: "Refine",
@@ -33,7 +35,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Suspense>
-          <GitHubBanner />
           <RefineKbarProvider>
             <AntdRegistry>
               <ColorModeContextProvider defaultMode={defaultMode}>
@@ -44,24 +45,18 @@ export default function RootLayout({
                     notificationProvider={useNotificationProvider}
                     resources={[
                       {
-                        name: "blog_posts",
-                        list: "/blog-posts",
-                        create: "/blog-posts/create",
-                        edit: "/blog-posts/edit/:id",
-                        show: "/blog-posts/show/:id",
+                        name: "personne",
+                        list: PersonneList,
+                        create: PersonneCreate,
+                        edit: "/personne/edit/:id",
+                        show: "/personne/show/:id",
                         meta: {
                           canDelete: true,
                         },
                       },
                       {
-                        name: "categories",
-                        list: "/categories",
-                        create: "/categories/create",
-                        edit: "/categories/edit/:id",
-                        show: "/categories/show/:id",
-                        meta: {
-                          canDelete: true,
-                        },
+                        name: "dashbord",
+                        list:"/dashbord",
                       },
                     ]}
                     options={{
@@ -69,6 +64,10 @@ export default function RootLayout({
                       warnWhenUnsavedChanges: true,
                       useNewQueryKeys: true,
                       projectId: "geMhuQ-u2GIOR-E0oEif",
+                      title:{
+                        icon : "",//lien anle icon
+                        text:"Joely"
+                      }
                     }}
                   >
                     {children}

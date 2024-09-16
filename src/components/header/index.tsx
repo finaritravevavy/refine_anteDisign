@@ -12,6 +12,7 @@ import {
   theme,
 } from "antd";
 import React, { useContext } from "react";
+import SideNavBar from "../sidebar";
 
 const { Text } = Typography;
 const { useToken } = theme;
@@ -62,4 +63,5 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
       </Space>
     </AntdLayout.Header>
   );
+  <SideNavBar />
 };
