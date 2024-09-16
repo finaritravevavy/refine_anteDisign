@@ -30,5 +30,6 @@ export default function Chart({data}) {
           />
         </BarChart>
       </ResponsiveContainer>
+      <p>zoely</p>
     );
   }
